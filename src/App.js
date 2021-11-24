@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import NavBar from './Components/NavBar';
+import ItemListContainer from './Components/ItemListContainer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </a>
   </header>*/}
       <NavBar/>
+      <ItemListContainer greeting={"Hola mis productos"}/>
   </div>
   );
 }
