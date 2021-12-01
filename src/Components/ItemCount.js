@@ -2,6 +2,7 @@ import react, {useState} from "react";
 
 const ItemCount = (props) => {
     
+    const [mensaje] = useState(props.onAdd)
     const [count, setcount] = useState(props.initial);
 
     const handleClickAdd = () => {
@@ -18,6 +19,14 @@ const ItemCount = (props) => {
         }
     }
 
+    const onAdd = () => {
+        if (props.stock >= count) {
+            alert(mensaje);    
+        }else{
+            alert('No hay stock');
+        }
+    }
+
     return (
         <div>
             <div className="my-4">
@@ -26,7 +35,7 @@ const ItemCount = (props) => {
                 <button onClick={handleClickAdd} type="button" className="btn btn-secondary"> + </button>
             </div>
 
-            <button onClick={props.stock > 0 && props.onAdd} type="button" className="btn btn-secondary btn-lg"> Agregar al carrito </button>
+            <button onClick={onAdd} type="button" className="btn btn-secondary btn-lg"> Agregar al carrito </button>
         </div>
     )
 }
