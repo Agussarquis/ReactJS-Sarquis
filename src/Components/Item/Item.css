@@ -1,0 +1,17 @@
+.listProduct img {
+    height: 300px;
+    width: 200px;
+}
+.listProduct h1 {
+    font-size: 2rem;
+}
+.listProduct h2 {
+    font-size: 1rem;
+}
+.listProduct {
+    padding: 40px;
+}
+.prod {
+    background-color: bisque;
+    width: 300px;
+}
