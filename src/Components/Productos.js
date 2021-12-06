@@ -5,7 +5,8 @@ const products = [
         precio:"$5000",
         img:"./img/buzo-canguro.jpg",
         descripcion:"Un buzo All Black",
-        stock:"5"
+        stock:"5",
+        texto:"Un buzo de tela elastizada, con capucha y mucho estilo. Ideal para vos que sos todo un All Black."
     },
     {
         id: "2",
@@ -39,4 +40,12 @@ export const getProducts = () => {
             resolve(products)
         },3000)
     }
-)}
+)};
+
+export const getItem = () => {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(products[0])
+        },4000)
+    }
+)};

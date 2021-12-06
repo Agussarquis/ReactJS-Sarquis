@@ -13,7 +13,7 @@ const Item = ({product}) => {
                   <p>Stock: {product.stock}</p>
               </div> 
         </div>
-    );
-}
+    )
+};
 
 export default Item

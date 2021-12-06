@@ -2,6 +2,7 @@
 import './App.css';
 import NavBar from './Components/NavBar';
 import ItemListContainer from './Components/ItemContainer/ItemListContainer';
+import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
   </header>*/}
       <NavBar/>
       <ItemListContainer greeting={"Hola mis productos"}/>
+      <ItemDetailContainer/>
   </div>
   );
 }
