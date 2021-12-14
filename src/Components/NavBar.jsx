@@ -1,26 +1,27 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import CartWidget from './Widget/CartWidget'
+import { getCategories } from './Productos'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        getCategories().then(categories => {
+          setCategories(categories)
+        })
+      },[])
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/#">AllBlack</a>
+                <Link to={'/'}><h1 className="navbar-brand" href="/#">AllBlack</h1></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="#/">Nosotros</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="#/">Productos</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="#/">Contacto</a>
-                    </li>
-                </ul>
+                {categories.map(cat => <Link key={cat.id} className='Option' to={`/category/${cat.id}`}>{cat.description}</Link>)}
                 <CartWidget/>
                 </div>
             </div>

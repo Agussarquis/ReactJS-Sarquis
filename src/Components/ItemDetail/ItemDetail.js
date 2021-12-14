@@ -1,4 +1,4 @@
-
+import ItemCount from '../ItemCount'
 
 const ItemDetail = ({product}) => {
     return(
@@ -12,6 +12,7 @@ const ItemDetail = ({product}) => {
                     <button>Ver detalle del producto</button> 
                     <p>Stock: {product.stock}</p>
                     <p>{product.texto}</p>
+                    <ItemCount stock={product.stock} initial={1} onAdd={"Compraste los siguientes productos All Black"}/>
                 </div> 
             ):(<div>Cargando...</div>)}
         </div>

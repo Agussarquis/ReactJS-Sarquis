@@ -1,29 +1,29 @@
 import React, {useEffect, useState } from 'react'
-import ItemCount from '../ItemCount'
 import ItemList from '../ItemList/ItemList';
 import { getProducts } from '../Productos';
 import "./ItemListContainer.css"
+import { useParams } from 'react-router';
 
 
 
 const ItemListContainer =() => {
     const[products,setProducts] = useState([]);
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        const list = getProducts()
-        
-        list.then(list => {
-            setProducts(list);
-        })
+        getProducts(categoryId).then(item => {
+            setProducts(item)
+        }).catch(err => {
+            console.log(err)
+        })        
 
         return (() => {
             setProducts([])
         })
-    }, [])
+    }, [categoryId])
 
     return(
         <div className="ItemListContainer">
-        {/*<ItemCount stock={5} initial={1} onAdd={"Compraste los siguientes productos All Black"}/>*/}
         <ItemList products={products}/>
         </div>
         

@@ -1,23 +1,33 @@
 import React, {useEffect, useState } from 'react'
-import { getItem } from '../Productos';
+import { getProductById } from '../Productos';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router';
 
 
 
 const ItemDetailContainer =() => {
     const[products,setProducts] = useState([]);
+    const[inputType, setInputType] = useState("input")
+
+    const { paramId } = useParams()
 
     useEffect(() => {
-        const detail = getItem()
-        
-        detail.then(itemDetail => {
-            setProducts(itemDetail);
+        getProductById(paramId).then(item => {
+            setProducts(item)
+        }).catch(err => {
+            console.log(err)
         })
-    })
+        
+        return(() => {
+            setProducts();
+        })
+    },[paramId])
 
     return(
         <div className="ListItem">
-        <ItemDetail product={products}/>
+            <button onClick={() => setInputType('input')}>Input</button>
+            <button onClick={() => setInputType('button')}>Button</button>
+            <ItemDetail product={products} inputType={inputType}/>
         </div>
         
     )

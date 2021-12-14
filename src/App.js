@@ -3,27 +3,21 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import ItemListContainer from './Components/ItemContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import ItemCount from './Components/ItemCount';
 
 function App() {
   return (
     <div className="App">
-      {/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-  </header>*/}
-      <NavBar/>
-      <ItemListContainer greeting={"Hola mis productos"}/>
-      <ItemDetailContainer/>
+       <BrowserRouter>
+          <NavBar/>
+          <Switch>
+            <Route exact path='/' element={<ItemListContainer/>}/>
+            <Route path='category/:categoryId' element={<ItemListContainer/>} />
+            <Route path='detail/:paramId' element={<ItemDetailContainer />} />
+            <Route path='count' element={<ItemCount/>} />
+          </Switch>
+        </BrowserRouter>    
   </div>
   );
 }
