@@ -27,7 +27,7 @@ const products = [
         descripcion:"Unas botas All Black",
         stock:"5",
         texto:"Unas botas de cuero negras, con cordones y mucho estilo. Ideales para vos que sos todo un All Black.",
-        category:""
+        category:"Invierno"
     },
     {
         id: "4",
