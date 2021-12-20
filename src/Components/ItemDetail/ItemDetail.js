@@ -53,17 +53,16 @@ const ItemDetail = ({product, inputType = 'input' }) => {
 
     return(
         <div className="listProduct">
-            {product.length !==0?(
-                <div key={product.id}>
-                    <h1>{product.name}</h1>
-                    <h2>{product.descripcion}</h2>
-                    <img src={product.img} alt="imagen" />
-                    <p>{product.precio}</p>
-                    <button>Ver detalle del producto</button> 
-                    <p>Stock: {product.stock}</p>
-                    <p>{product.texto}</p>
-                    <ItemCount stock={product.stock} initial={1} onAdd={"Compraste los siguientes productos All Black"}/>
-                    <Count onConfirm={addToCart} maxQuantity={product.stock}/>
+            {product?.length !==0?(
+                <div key={product?.id}>
+                    <h1>{product?.name}</h1>
+                    <h2>{product?.descripcion}</h2>
+                    <img src={product?.img} alt="imagen" />
+                    <p>{product?.precio}</p>
+                    <p>{product?.category}</p>
+                    <p>Stock: {product?.stock}</p>
+                    <p>{product?.texto}</p>
+                    <Count onConfirm={addToCart} maxQuantity={product?.stock}/>
                 </div> 
             ):(<div>Cargando...</div>)}
         </div>
