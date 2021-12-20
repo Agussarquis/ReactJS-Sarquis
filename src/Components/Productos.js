@@ -15,7 +15,7 @@ const products = [
         precio:"$5500",
         img:"./img/canguro-estampado.jpg",
         descripcion:"Un buzo estampado All Black",
-        stock:"5",
+        stock:"11",
         texto:"Un buzo estampado de tela elastizada, con capucha y mucho estilo. Ideal para vos que sos todo un All Black.",
         category:"Invierno"
     },
@@ -25,7 +25,7 @@ const products = [
         precio:"$8000",
         img:"./img/botas.jpg",
         descripcion:"Unas botas All Black",
-        stock:"5",
+        stock:"10",
         texto:"Unas botas de cuero negras, con cordones y mucho estilo. Ideales para vos que sos todo un All Black.",
         category:"Invierno"
     },
@@ -35,7 +35,7 @@ const products = [
         precio:"$6500",
         img:"./img/sweater.jpg",
         descripcion:"Un sweater All Black",
-        stock:"5",
+        stock:"12",
         texto:"Un sweater de lana, con mucho estilo. Ideal para vos que sos todo un All Black.",
         category:"Invierno"
     },
@@ -45,7 +45,7 @@ const products = [
         precio:"$4000",
         img:"./img/remera.jpg",
         descripcion:"Una remera All Black",
-        stock:"5",
+        stock:"3",
         texto:"Una remera de tela elastizada, con mucho estilo. Ideal para vos que sos todo un All Black.",
         category:"Verano"
     },
@@ -55,7 +55,7 @@ const products = [
         precio:"$3500",
         img:"./img/remera-lisa.jpg",
         descripcion:"Una remera All Black",
-        stock:"5",
+        stock:"9",
         texto:"Una remera de tela elastizada, con mucho estilo. Ideal para vos que sos todo un All Black.",
         category:"Verano"
     },
@@ -65,7 +65,7 @@ const products = [
         precio:"$3900",
         img:"./img/short.jpg",
         descripcion:"Un short All Black",
-        stock:"5",
+        stock:"8",
         texto:"Un short, con mucho estilo. Ideal para vos que sos todo un All Black.",
         category:"Verano"
     },
@@ -92,12 +92,17 @@ export const getProducts = (category) => {
     })
 }
 
-export const getProductById = (id) => {  
+export const getItemById = (id) => {
     return new Promise((resolve, reject) => {
-        const product = products.find(prod => parseInt(prod.id) === parseInt(id))
-        setTimeout(() => resolve(product), 1000)
-    })
-}
+        const product = products.find(
+            (prod) => parseInt(prod.id) === parseInt(id)
+        );
+        setTimeout(() => {
+            resolve(product);
+            reject("No se pueden cargar los productos");
+        }, 2000);
+    });
+};
 
 export const getItem = () => {
     return new Promise((resolve,reject) => {

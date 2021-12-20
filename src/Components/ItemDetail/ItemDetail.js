@@ -64,7 +64,7 @@ const ItemDetail = ({product, inputType = 'input' }) => {
                     <p>Stock: {product.stock}</p>
                     <p>{product.texto}</p>
                     <ItemCount stock={product.stock} initial={1} onAdd={"Compraste los siguientes productos All Black"}/>
-                    <Count onConfirm={addToCart} maxQuantity={product?.stock}/>
+                    <Count onConfirm={addToCart} maxQuantity={product.stock}/>
                 </div> 
             ):(<div>Cargando...</div>)}
         </div>
