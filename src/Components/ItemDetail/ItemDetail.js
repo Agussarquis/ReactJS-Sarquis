@@ -1,7 +1,6 @@
 import ItemCount from '../ItemCount'
 import { useState } from 'react'
 
-
 const InputCount = ({onConfirm, maxQuantity}) => {
     const [count, setCount] = useState(0)
 

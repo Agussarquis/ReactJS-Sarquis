@@ -7,7 +7,7 @@ const Item = ({product}) => {
 
     const handleClick = (evt) => {
         evt.stopPropagation()
-        console.log(`hice click en Item ${product.id}`)
+        console.log(`hice click en Item ${product?.id}`)
     }
 
     return(
