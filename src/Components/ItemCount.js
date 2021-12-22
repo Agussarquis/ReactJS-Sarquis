@@ -1,9 +1,16 @@
-import react, {useState} from "react";
+import react, {useState,useContext} from "react";
+import { Link } from 'react-router-dom'
+import { CartContext } from "../Context/CartContext"; 
 
-const ItemCount = (props) => {
+
+const ItemCount = (props,product) => {
     
     const [mensaje] = useState(props.onAdd)
     const [count, setcount] = useState(props.initial);
+    const {addItem} = useContext(CartContext)
+
+    const [buy, setBuy] = useState(false);
+    const [qty, setQty] = useState(0);
 
     const handleClickAdd = () => {
         if(count < props.stock)
@@ -19,12 +26,8 @@ const ItemCount = (props) => {
         }
     }
 
-    const onAdd = () => {
-        if (props.stock >= count) {
-            alert(mensaje);    
-        }else{
-            alert('No hay stock');
-        }
+    const handlePurchase = () => {
+        addItem(product, qty);
     }
 
     return (
@@ -35,7 +38,7 @@ const ItemCount = (props) => {
                 <button onClick={handleClickAdd} type="button" className="btn btn-secondary"> + </button>
             </div>
 
-            <button onClick={onAdd} type="button" className="btn btn-secondary btn-lg"> Agregar al carrito </button>
+            <button onClick = {handlePurchase} type="button" className="btn btn-secondary btn-lg"><Link to= "/cart"> Agregar al carrito </Link></button>
         </div>
     )
 }

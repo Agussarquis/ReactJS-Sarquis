@@ -20,7 +20,7 @@ const Item = ({product}) => {
                   <Link className='ButtonDetail' to={`/detail/${product.id}`}>Ver detalle</Link> 
                   <p>Stock: {product.stock}</p>
               </div> 
-              <ItemCount stock={product.stock} initial={1} onAdd={"Agregaste productos All Black al carrito"}/>
+
         </div>
     )
 };
