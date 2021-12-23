@@ -1,6 +1,7 @@
 import ItemCount from '../ItemCount'
 import { useState, useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
+import { Link } from 'react-router-dom'
 
 
 const ItemDetail = ({product}) => {
@@ -30,7 +31,11 @@ const ItemDetail = ({product}) => {
                 <p>{product?.category}</p>
                 <p>Stock: {product?.stock}</p>
                 <p>{product?.texto}</p>
+                {!buy ?
                 <ItemCount stock={product?.stock} initial={1} onAdd={(qty) => handleBuy (qty)}/>
+                :
+                <button onClick = {handlePurchase}> <Link to= "/cart"> Comprar </Link></button>
+                }
             </div> 
         </div>
     )
