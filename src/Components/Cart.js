@@ -17,9 +17,9 @@ const Cart = () => {
             </thead>
             <tbody>
             {cart.map(product => {
-                        return <tr key={product.id}>
-                            <td> {product.img}</td>
-                            <td> {product.descripcion} </td>
+                        return <tr>
+                            <td> {product.item.img}</td>
+                            <td> {product.item.descripcion} </td>
                             <td> {product.cantidad} </td>
                         </tr>
             })}
