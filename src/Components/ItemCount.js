@@ -1,46 +1,39 @@
-import react, {useState,useContext} from "react";
-import { Link } from 'react-router-dom'
-import { CartContext } from "../Context/CartContext"; 
+import React, {useState} from 'react';
 
+const ItemCount = ({initial, stock, onAdd}) => {
 
-const ItemCount = (props,product) => {
-    
-    const [mensaje] = useState(props.onAdd)
-    const [count, setcount] = useState(props.initial);
-    const {addItem} = useContext(CartContext)
+    const [count, setCount] = useState(1)
+    const [out, setOut] = useState(false)
 
-    const [buy, setBuy] = useState(false);
-    const [qty, setQty] = useState(0);
-
-    const handleClickAdd = () => {
-        if(count < props.stock)
-        {
-          setcount(count + 1);
+    const handleAdd = () => {
+        if (count < stock) {
+            setCount(count + 1);
+        }
+        else {
+            setOut (true);
         }
     }
 
-    const handleClickRemove = () => {
-        if(count > 1)
-        {
-            setcount(count - 1);
+    const handleSub = () => {
+        if (count === 1) {
+            return
+        } else {
+            setCount(count - 1)
+            setOut(false);
         }
-    }
-
-    const handlePurchase = () => {
-        addItem(product, qty);
     }
 
     return (
-        <div>
-            <div className="my-4">
-                <button onClick={handleClickRemove} type="button" className="btn btn-secondary"> - </button>
-                <span> {count} </span>
-                <button onClick={handleClickAdd} type="button" className="btn btn-secondary"> + </button>
-            </div>
+        <div className = "itemCountContainer">
 
-            <button onClick = {handlePurchase} type="button" className="btn btn-secondary btn-lg"><Link to= "/cart"> Agregar al carrito </Link></button>
+            <button onClick = {handleSub} className="btn btn-secondary" >-</button>
+            <span>{count}</span>
+            <button onClick = {handleAdd} className="btn btn-secondary" >+</button>
+            {out && <span>Out of stock</span>}
+            <button onClick={() => onAdd(count)} className="btn btn-secondary btn-lg" > Agregar al carrito </button>
+
         </div>
     )
 }
 
-export default ItemCount;
+export default ItemCount

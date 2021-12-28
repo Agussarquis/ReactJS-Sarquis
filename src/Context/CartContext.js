@@ -15,23 +15,23 @@ const CartContextProvider = ({children}) => {
         return subTotal;
     }
 
-    const addItem = (producto, quantity) => {
+    const addItem = (product, quantity) => {
 
-        const flag = isInCart(producto);
+        const flag = isInCart(product);
         console.log(flag);
         if (flag) {
-            let productoRepetido = cart.find (elemento => elemento.item === producto);
+            let productoRepetido = cart.find (elemento => elemento.item === product);
             productoRepetido.cantidad += quantity;
-            let cartSinRepetido = cart.filter (elemento => elemento.item !== producto);
+            let cartSinRepetido = cart.filter (elemento => elemento.item !== product);
             setCart([...cartSinRepetido, productoRepetido]);
         } else {
-            setCart([...cart, {item: producto, cantidad: quantity}]);
+            setCart([...cart, {item: product, cantidad: quantity}]);
         }
     }
 
     const isInCart = (item) => {
         console.log(item);
-        return cart.some(producto => producto.item === item );
+        return cart.some(product => product.item === item );
     }
 
     const removeItem = (item) => {
