@@ -3,26 +3,32 @@ import { getItem } from '../Productos';
 import ItemDetail from './ItemDetail';
 import { getItemById } from '../Productos';
 import { useParams } from 'react-router';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../Service/FireBase/fireBase';
 
 
 
 const ItemDetailContainer =() => {
     const[product,setOneProduct] = useState();
     const [inputType, setInputType] = useState('input')
-
+    const[loading, setLoading] = useState(true)
     const { paramId } = useParams()
 
     useEffect(() => {
-        const listOneProduct = getItemById(paramId);
-
-        listOneProduct
-            .then((response) => {
-                setOneProduct(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        setLoading(true)
+        getDoc(doc(db,'Products', paramId)).then((querySnapshot) => {
+            const product = { id: querySnapshot.id, ...querySnapshot.data()}
+            setOneProduct(product)
+        }).catch((error) => {
+            console.log('Error searching Products', error)
+        }).finally(() =>{
+            setLoading(false)
+        })
     }, [paramId]);
+
+    if(loading) {
+        return <h1>Loading...</h1>
+    }
 
     return(
         <div className="ListItem">
