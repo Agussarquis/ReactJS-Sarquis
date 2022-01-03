@@ -2,27 +2,29 @@ import ItemCount from '../ItemCount'
 import React, { useState, useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
+import { NotificationContext } from '../../Context/NotificationContext'
 
 
-const ItemDetail = ({product}) => {
+const ItemDetail = ({ product }) => {
+    const { addItemCart } = useContext(CartContext);
+    const { setNotification } = useContext(NotificationContext);
 
-    const {addItem} = useContext(CartContext)
+    const [purchase, setPurchase] = useState(false);
 
-    const [buy, setBuy] = useState(false);
-    const [qty, setQty] = useState(0);
-    
+    const onAdd = (count) => {
+        let itemCart = addItemCart({ product, count });
 
-    const handleBuy = (qty) => {
-        setBuy(true);
-        setQty(qty);
-    }
-
-    const handlePurchase = () => {
-        addItem(product, qty);
-    }
+        if (itemCart) {
+            setNotification('succes', `¡Agregada la cantidad de ${count} de ${product.name} a tu carrito!`);
+            setPurchase(true);
+        } else {
+            setNotification('error', `¡Ingresaste más productos del stock permitido!`);
+            setPurchase(false);
+        }
+    };
 
     return(
-        <div className="listProduct">
+        <div>
             <div key={product?.id}>
                 <h1>{product?.name}</h1>
                 <h2>{product?.descripcion}</h2>
@@ -31,11 +33,22 @@ const ItemDetail = ({product}) => {
                 <p>{product?.category}</p>
                 <p>Stock: {product?.stock}</p>
                 <p>{product?.texto}</p>
-                {!buy ?
-                <ItemCount stock={product?.stock} initial={1} onAdd={(qty) => handleBuy (qty)}/>
-                :
-                <button onClick = {handlePurchase}> <Link to= "/cart"> Comprar </Link></button>
-                }
+                {!purchase ? (
+                <ItemCount stock={product?.stock} initial={0} onAdd={onAdd}/>
+                 ) : (
+                    <div>
+                        <div>
+                            <Link  to={'/'}>
+                                Seleccionar otro Artículo
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to={'/cart'}>
+                                Ir al Carrito
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </div> 
         </div>
     )

@@ -24,13 +24,19 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return (
-        <div className = "itemCountContainer">
+        <div>
+        <div className = "my-4">
 
-            <button onClick = {handleSub} className="btn btn-secondary" >-</button>
+            <button onClick = {handleSub} type="button" className="btn btn-secondary" >-</button>
             <span>{count}</span>
-            <button onClick = {handleAdd} className="btn btn-secondary" >+</button>
-            {out && <span>Out of stock</span>}
-            <button onClick={() => onAdd(count)} className="btn btn-secondary btn-lg" > Agregar al carrito </button>
+            <button onClick = {handleAdd} type="button" className="btn btn-secondary" >+</button>
+        </div>
+        <div className='my-4'>    
+            {out && <span>No hay stock disponible</span>}
+        </div>    
+            
+            <button onClick={() => onAdd(count)} type="button" className="btn btn-secondary btn-lg" > Agregar al carrito </button>
+        
 
         </div>
     )

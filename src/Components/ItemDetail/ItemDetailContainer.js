@@ -1,7 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import { getItem } from '../Productos';
 import ItemDetail from './ItemDetail';
-import { getItemById } from '../Productos';
 import { useParams } from 'react-router';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../Service/FireBase/fireBase';
@@ -31,7 +29,7 @@ const ItemDetailContainer =() => {
     }
 
     return(
-        <div className="ListItem">
+        <div>
             <ItemDetail product={product} inputType={inputType}/>
         </div>
         

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import CartWidget from './Widget/CartWidget'
-import { getCategories } from './Productos'
+import CartWidget from '../Widget/CartWidget'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { CartContext } from '../Context/CartContext'
+import { CartContext } from '../../Context/CartContext'
+import "./NavBar.css";
+import { getCategories } from '../Productos'
 
 const NavBar = () => {
     const [categories, setCategories] = useState([])
-    const {getCantidad} = useContext(CartContext);
+    const {getCount} = useContext(CartContext);
 
     useEffect(() => {
         getCategories().then(categories => {
@@ -30,12 +31,12 @@ const NavBar = () => {
                         <Link to = "/cart"><CartWidget/></Link>
                         <div 
                             style={{
-                            height: '22px', width: '22px', borderRadius: "10px", backgroundColor: "red",
-                            position: "absolute", top: "-8px", right: "-10px", textAlign: "center", alignItems: "center"
+                            width: '22px', borderRadius: "10px", backgroundColor: "green",
+                            position: "absolute", top: "-4px", right: "-1px", textAlign: "center", alignItems: "center"
                          }}>
                             <span style={{
                                 color: 'white',
-                         }}>{getCantidad()}</span>
+                         }}>{getCount()}</span>
                         </div>
                     </div>
             </div>
