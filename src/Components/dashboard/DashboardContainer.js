@@ -31,7 +31,7 @@ const DashBoardContainer = () => {
             {values.email !== '' ? (
                 <div>
                     {list ? (
-                        <div>
+                        <div className='dash'>
                             <h1 className="title">Tu Lista de Compras</h1>
                             <ItemsDashboard products={listProduct} />
                         </div>
@@ -39,14 +39,14 @@ const DashBoardContainer = () => {
                         <h1>Loading...</h1>
                     )}
                     <Link to="/">
-                        <button className="buttonCart">Volver a la tienda</button>
+                        <button className="buttonCart btn btn-dark">Volver a la tienda</button>
                     </Link>
                 </div>
             ) : (
                 <div>
                     <h1 className="title">No compraste nada aún</h1>
                     <Link to="/">
-                        <button className="buttonCart">Volver a la tienda</button>
+                        <button className="buttonCart btn btn-dark">Volver a la tienda</button>
                     </Link>
                 </div>
             )}

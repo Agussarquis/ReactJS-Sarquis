@@ -1,0 +1,13 @@
+.detail {
+    margin-top: 80px;
+    background-image: url(https://i.pinimg.com/originals/9b/c0/7a/9bc07a2faf0cdb552eef1ffd90fa062f.jpg);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.deta {
+    color: white;
+}
+.deta img {
+    height: 50vh;
+}

@@ -5,13 +5,32 @@
 .listProduct h1 {
     font-size: 2rem;
 }
-.listProduct h2 {
-    font-size: 1rem;
+.listProduct span {
+    font-weight: 700;
 }
 .listProduct {
     padding: 40px;
+    margin: 20px;
+    border: 2px solid #e9c55c;
+    background-color: black;
 }
 .prod {
-    background-color: bisque;
+    background-color: #85888b;
     width: 300px;
+    height: 450px;
+    border: 4px solid #3b3838;
+}
+.ButtonDetail {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 0.3rem;
+    margin: 5px;
+}
+.ButtonDetail:hover {
+    color: #212529;
+}
+.Price {
+    padding: 10px 0px 0px 10px;
 }

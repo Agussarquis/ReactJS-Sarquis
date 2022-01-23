@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(0)
     const [out, setOut] = useState(false)
 
     const handleAdd = () => {

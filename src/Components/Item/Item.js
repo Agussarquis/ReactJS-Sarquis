@@ -13,11 +13,9 @@ const Item = ({product}) => {
         <div className="listProduct" onClick={handleClick}>
               <div className="prod" key={product.id}>
                   <h1>{product.name}</h1>
-                  <h2>{product.descripcion}</h2>
                   <img src={product.img} alt="imagen" />
-                  <p>{product.precio}</p>
+                  <p className="Price"><span>Precio: </span>{product.precio}</p>
                   <Link className='ButtonDetail' to={`/detail/${product.id}`}>Ver detalle</Link> 
-                  <p>Stock: {product.stock}</p>
               </div> 
 
         </div>

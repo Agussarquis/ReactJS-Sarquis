@@ -8,7 +8,7 @@ import { db } from '../../Service/FireBase/fireBase';
 
 const ItemDetailContainer =() => {
     const[product,setOneProduct] = useState();
-    const [inputType, setInputType] = useState('input')
+    const [inputType] = useState('input')
     const[loading, setLoading] = useState(true)
     const { paramId } = useParams()
 
@@ -29,7 +29,7 @@ const ItemDetailContainer =() => {
     }
 
     return(
-        <div>
+        <div className='detail'>
             <ItemDetail product={product} inputType={inputType}/>
         </div>
         

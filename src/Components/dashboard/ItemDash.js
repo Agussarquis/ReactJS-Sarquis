@@ -8,11 +8,11 @@ const ItemDash = ({ product }) => {
             <p>Productos:</p>
             {product.items.length > 0 &&
                 product.items.map((product) => {
-                    console.log(product.item.name);
+                    console.log(product.product.name);
                     return (
                         <ul  key={product.id}>
-                            <li>{product.name}</li>
-                            <li>${product.precio}</li>
+                            <li>{product.product.name}</li>
+                            <li>{product.product.precio}</li>
                             <li>x{product.count}</li>
                         </ul>
                     );

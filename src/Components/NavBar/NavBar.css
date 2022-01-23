@@ -7,3 +7,12 @@
 .navbar h1 {
     font-size: 2.5rem;
 }
+.parallax {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+}
+.navbar {
+    background-color: #e9c55c;
+}

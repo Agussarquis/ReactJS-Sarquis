@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { NotificationContext } from '../../Context/NotificationContext';
 import { UserContext } from '../../Context/UserContext';
 import { Link } from 'react-router-dom';
+import './checkout.css'
 
 const CheckoutContainer = () => {
     const { clearItems, getTotal, values } = useContext(CartContext);
@@ -124,7 +125,7 @@ const CheckoutContainer = () => {
                             </div>
                             <p>Total: ${getTotal()}</p>
                             <div>
-                                <button type="submit">Enviar</button>
+                                <button className='btn btn-success' type="submit">Enviar</button>
                             </div>
                         </form>
                     ) : (

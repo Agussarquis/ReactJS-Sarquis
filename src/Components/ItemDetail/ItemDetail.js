@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { NotificationContext } from '../../Context/NotificationContext'
+import './Detail.css'
 
 
 const ItemDetail = ({ product }) => {
@@ -15,7 +16,7 @@ const ItemDetail = ({ product }) => {
         let itemCart = addItemCart({ product, count });
 
         if (itemCart) {
-            setNotification('succes', `¡Agregada la cantidad de ${count} de ${product.name} a tu carrito!`);
+            setNotification('succes', `¡Agregaste ${count} ${product.name} a tu carrito!`);
             setPurchase(true);
         } else {
             setNotification('error', `¡Ingresaste más productos del stock permitido!`);
@@ -24,7 +25,7 @@ const ItemDetail = ({ product }) => {
     };
 
     return(
-        <div>
+        <div className='container deta'>
             <div key={product?.id}>
                 <h1>{product?.name}</h1>
                 <h2>{product?.descripcion}</h2>
@@ -34,17 +35,17 @@ const ItemDetail = ({ product }) => {
                 <p>Stock: {product?.stock}</p>
                 <p>{product?.texto}</p>
                 {!purchase ? (
-                <ItemCount stock={product?.stock} initial={0} onAdd={onAdd}/>
+                <ItemCount stock={product?.stock} initial={10} onAdd={onAdd}/>
                  ) : (
                     <div>
                         <div>
                             <Link  to={'/'}>
-                                Seleccionar otro Artículo
+                                <button className='btn btn-dark'>Seleccionar otro Artículo</button>
                             </Link>
                         </div>
                         <div>
                             <Link to={'/cart'}>
-                                Ir al Carrito
+                                <button className='btn btn-dark'>Ir al Carrito</button>
                             </Link>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ import NotificationContextProvider from './Context/NotificationContext';
 import UserContextProvider from './Context/UserContext';
 import Checkout from './Components/checkout/Checkout';
 import DashBoardContainer from './Components/dashboard/DashboardContainer';
+import Notification from './Components/Notification/Notification'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <NotificationContextProvider>
           <CartContextProvider>
           <BrowserRouter>
+            <Notification />
               <NavBar/>
               <Routes>
                 <Route exact path='/' element={<ItemListContainer/>}/>

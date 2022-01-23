@@ -12,7 +12,7 @@ const NotificationContextProvider = ({ children}) => {
         setTimeout(() => {
             setMessage('');
             setSeverity('');
-        }, 2000);
+        }, 4000);
     }
 
     return (

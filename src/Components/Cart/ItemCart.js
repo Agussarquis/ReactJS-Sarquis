@@ -22,10 +22,10 @@ const ItemCart = ({ product, count }) => {
                     <h2 className="Count">{count}</h2>
                 </td>
                 <td>
-                    <h2 className="Price">{product.precio}</h2>
+                    <h2 className="Price">${product.precio * count}</h2>
                 </td>
                 <td>
-                    <i onClick={removeItem} className="far fa-times-circle"></i>
+                    <button className='btn btn-danger' onClick={removeItem} >X</button>
                 </td>
             </tr>
         </tbody>

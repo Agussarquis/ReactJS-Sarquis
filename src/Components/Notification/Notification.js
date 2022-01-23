@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import NotificationContextProvider from '../../Context/NotificationContext';
+import {NotificationContext} from '../../Context/NotificationContext';
+import './notification.css'
 
 
 
 const Notification = () => {
-    const { notification, setNotification } = useContext(NotificationContextProvider);
+    const { notification, setNotification } = useContext(NotificationContext);
     if (notification.message === '') {
         return null;
     }
