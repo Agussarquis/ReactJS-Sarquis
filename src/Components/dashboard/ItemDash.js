@@ -10,7 +10,7 @@ const ItemDash = ({ product }) => {
                 product.items.map((product) => {
                     console.log(product.product.name);
                     return (
-                        <ul  key={product.id}>
+                        <ul  key={product.product.id}>
                             <li>{product.product.name}</li>
                             <li>{product.product.precio}</li>
                             <li>x{product.count}</li>
