@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+Tienda All Black
+This is a project was done completely with React JS following CoderHouse's lessons.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Installation and Execution of the program
 
-## Available Scripts
+npm i or npm install
+With npm i or npm install you will be able to install all the necessary dependencies to make the application work.
 
-In the project directory, you can run:
+npm start
+With npm start, you can start the application,  it will run after a few seconds.
 
-### `npm start`
+Cntrl + C
+With control + C, you can end the execution of the program.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+What programming languages did I use?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Html
+Css
+JavaScript
+Node JS (For server execution)
+The database I used:
 
-### `npm test`
+Firebase
+.env
+Add an .env with my Firebase database to keep my database information safe.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Text for example
+REACT_APP_API_KEY=njinjirjvjiejfnfjv
+REACT_APP_AUTH_DOMAIN=ueufjkkc.firebaseapp.com
+REACT_APP_PROJECT_ID=App-kmkvmwekvmk
+REACT_APP_STORAGE_BUCKET=jojwenccjnwk.appspot.com
+REACT_APP_MESSAGING_SENDER_ID=1234567894
+REACT_APP_APP_ID=1:123456789:web:ec1545132ecec3226
 
-### `npm run build`
+How does the project work?
+ItemListContainer
+The ItemListContainer contains a list of all the products found in the product.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ItemDetailContainer
+The ItemDetailContainer contains the details of a specific product, which is received by ID through the useParams of React Router.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+CartList
+The CartList contains all the products that are chosen by the buyers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Checkout
+The checkout contains a form with data to register the users and add them to the database.
 
-### `npm run eject`
+Dashboard
+The Dashboard contains a list of all the products that the user bought through their email.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Author
+Agustin Sarquis.
